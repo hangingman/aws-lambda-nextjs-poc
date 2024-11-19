@@ -1,8 +1,8 @@
 install:
-	npm install
+	yarn install
 
 build:
-	npm run build
+	yarn build
 
 artifacts:	
 	# Copy artifacts for deployment

@@ -13,6 +13,7 @@
     "date-fns": "^2.29.1",
     "gray-matter": "^4.0.3",
     "next": "^14",
+    "next-build-id": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
     "remark": "^14.0.2",

@@ -17,7 +17,7 @@ export const getStaticProps = async () => {
 
 const Home = ({ allPostsData }) => {
   return (
-    <Layout home>
+    (<Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -28,14 +28,13 @@ const Home = ({ allPostsData }) => {
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
       </section>
-      
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href={`/posts/${id}`}>
-                <a>{title}</a>
+                {title}
               </Link>
               <br />
               <small className={utilStyles.lightText}>
@@ -45,8 +44,8 @@ const Home = ({ allPostsData }) => {
           ))}
         </ul>
       </section>
-    </Layout>
-  )
+    </Layout>)
+  );
 }
 
 export default Home;

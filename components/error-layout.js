@@ -8,7 +8,7 @@ export const siteTitle = 'Next.js Sample Website';
 
 const ErrorLayout = ({ children }) => {
   return (
-    <div className={styles.container}>
+    (<div className={styles.container}>
       <Head>
         <link rel="icon" href="/static/favicon.ico" />
         <meta
@@ -25,13 +25,13 @@ const ErrorLayout = ({ children }) => {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <main>{children}</main>
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-    </div>
-  )
+      <div className={styles.backToHome}>
+        <Link href="/">
+          ← Back to home
+        </Link>
+      </div>
+    </div>)
+  );
 }
 
 export default ErrorLayout;

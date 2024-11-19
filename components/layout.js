@@ -10,7 +10,7 @@ export const siteTitle = 'Next.js Sample Website';
 
 const Layout = ({ children, home }) => {
   return (
-    <div className={styles.container}>
+    (<div className={styles.container}>
       <Head>
         <link rel="icon" href="/static/favicon.ico" />
         <meta
@@ -42,20 +42,20 @@ const Layout = ({ children, home }) => {
         ) : (
           <>
             <Link href="/">
-              <a>
-                <Image
-                  priority
-                  src="/static/images/AWS.svg"
-                  className={utilStyles.borderCircle}
-                  height={108}
-                  width={108}
-                  alt={name}
-                />
-              </a>
+
+              <Image
+                priority
+                src="/static/images/AWS.svg"
+                className={utilStyles.borderCircle}
+                height={108}
+                width={108}
+                alt={name}
+              />
+
             </Link>
             <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
+              <Link href="/" className={utilStyles.colorInherit}>
+                {name}
               </Link>
             </h2>
           </>
@@ -65,12 +65,12 @@ const Layout = ({ children, home }) => {
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
-            <a>← Back to home</a>
+            ← Back to home
           </Link>
         </div>
       )}
-    </div>
-  )
+    </div>)
+  );
 }
 
 export default Layout;

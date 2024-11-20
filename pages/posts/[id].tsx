@@ -1,29 +1,31 @@
-import Head from 'next/head';
-import { GetStaticProps, GetStaticPaths, GetStaticPathsResult } from 'next';
+import Head from "next/head";
+import { GetStaticProps, GetStaticPaths, GetStaticPathsResult } from "next";
 
-import Date from '../../components/date';
-import Layout from '../../components/layout';
-import { getAllPostIds, getPostData, PathObject } from '../../lib/posts';
-import utilStyles from '../../styles/utils.module.css';
+import Date from "../../components/date";
+import Layout from "../../components/layout";
+import { getAllPostIds, getPostData, PathObject } from "../../lib/posts";
+import utilStyles from "../../styles/utils.module.css";
 
-export const getStaticProps: GetStaticProps = async ({ params }: { params: { id: string } }) => {
+export const getStaticProps: GetStaticProps = async ({
+  params,
+}: {
+  params: { id: string };
+}) => {
   const postData = await getPostData(params.id);
   return {
     props: {
       postData,
     },
   };
-}
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths: Array<string> = getAllPostIds().map((pathObj: PathObject) => (
-    pathObj.params.id
-  ));
+  const paths = getAllPostIds();
   return {
     paths,
     fallback: false,
   } as GetStaticPathsResult;
-}
+};
 
 interface PostData {
   title: string;
@@ -50,6 +52,6 @@ const Post = ({ postData }: PostProps) => {
       </article>
     </Layout>
   );
-}
+};
 
 export default Post;

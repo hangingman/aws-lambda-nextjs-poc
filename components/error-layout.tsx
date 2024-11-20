@@ -1,3 +1,4 @@
+import React, { ReactNode } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -6,7 +7,11 @@ import utilStyles from '../styles/utils.module.css';
 
 export const siteTitle = 'Next.js Sample Website';
 
-const ErrorLayout = ({ children }) => {
+interface ErrorLayoutProps {
+  children: ReactNode;
+}
+
+const ErrorLayout: React.FC<ErrorLayoutProps> = ({ children }) => {
   return (
     (<div className={styles.container}>
       <Head>

@@ -1,3 +1,4 @@
+import React, { ReactNode } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,7 +9,12 @@ import utilStyles from '../styles/utils.module.css';
 const name = 'Next.js applications with Serverless services on AWS';
 export const siteTitle = 'Next.js Sample Website';
 
-const Layout = ({ children, home }) => {
+interface LayoutProps {
+  children: ReactNode;
+  home?: boolean;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children, home }) => {
   return (
     (<div className={styles.container}>
       <Head>
